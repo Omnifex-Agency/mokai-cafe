@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { MOKAI_DATA } from "@/data/mokai";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -25,9 +26,17 @@ const CATEGORIES = Object.keys(MENU_DATA);
 
 const FILTERS = ["All", "Vegan", "GF", "Bestseller"];
 
-export default function MenuPage() {
+function MenuContent() {
+    const searchParams = useSearchParams();
     const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]);
     const [activeFilter, setActiveFilter] = useState("All");
+
+    useEffect(() => {
+        const categoryParam = searchParams.get("category");
+        if (categoryParam && CATEGORIES.includes(categoryParam)) {
+            setActiveCategory(categoryParam);
+        }
+    }, [searchParams]);
 
     // Get current main category data (Map of subcats -> items)
     const currentSubCats = MENU_DATA[activeCategory] || {};
@@ -46,7 +55,10 @@ export default function MenuPage() {
                     {CATEGORIES.map((cat) => (
                         <button
                             key={cat}
-                            onClick={() => setActiveCategory(cat)}
+                            onClick={() => {
+                                setActiveCategory(cat);
+                                // Optional: update URL? No, lets keep it simple.
+                            }}
                             className={`pb-2 text-[1.1rem] whitespace-nowrap transition-all duration-300 border-b-2 
                                 ${activeCategory === cat
                                     ? 'text-dark-black border-mocha font-heading font-bold'
@@ -154,5 +166,13 @@ export default function MenuPage() {
 
             </div>
         </main>
+    );
+}
+
+export default function MenuPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-rice-paper pt-36 text-center">Loading menu...</div>}>
+            <MenuContent />
+        </Suspense>
     );
 }

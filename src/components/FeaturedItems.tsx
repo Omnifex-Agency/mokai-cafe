@@ -11,28 +11,28 @@ const items = [
         desc: "Ceremonial grade matcha sourced directly from Uji, Japan.",
         image: "/matcha.png",
         color: "#7A8B68",
-        link: "/menu"
+        link: "/menu?category=Coffee%20%26%20Desserts"
     },
     {
         title: "All-Day Breakfast",
         desc: "From fluffy pancakes to savory miso mushroom toast.",
         image: "/coffee.png", // Placeholder
         color: "#E8DCC4",
-        link: "/menu"
+        link: "/menu?category=All%20Day%20Breakfast"
     },
     {
         title: "Asian Fusion Plates",
         desc: "Where French technique meets bold Asian flavors.",
         image: "/hero.png", // Placeholder
         color: "#CED7C0",
-        link: "/menu"
+        link: "/menu?category=Lunch%20%26%20Dinner%20(12pm%2B)"
     },
     {
         title: "Specialty Coffee",
         desc: " ethically sourced beans roasted to perfection.",
         image: "/coffee.png",
         color: "#A67B5B",
-        link: "/menu"
+        link: "/menu?category=Coffee%20%26%20Desserts"
     }
 ];
 
