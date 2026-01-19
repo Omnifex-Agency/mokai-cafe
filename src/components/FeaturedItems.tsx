@@ -16,21 +16,21 @@ const items = [
     {
         title: "All-Day Breakfast",
         desc: "From fluffy pancakes to savory miso mushroom toast.",
-        image: "/coffee.png", // Placeholder
+        image: "/mokai_breakfast.png",
         color: "#E8DCC4",
         link: "/menu?category=All%20Day%20Breakfast"
     },
     {
         title: "Asian Fusion Plates",
         desc: "Where French technique meets bold Asian flavors.",
-        image: "/hero.png", // Placeholder
+        image: "/mokai_asian_fusion.png",
         color: "#CED7C0",
         link: "/menu?category=Lunch%20%26%20Dinner%20(12pm%2B)"
     },
     {
         title: "Specialty Coffee",
         desc: " ethically sourced beans roasted to perfection.",
-        image: "/coffee.png",
+        image: "/mokai_specialty_coffee.png",
         color: "#A67B5B",
         link: "/menu?category=Coffee%20%26%20Desserts"
     }
